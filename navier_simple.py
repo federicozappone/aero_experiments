@@ -38,35 +38,35 @@ def navier_stokes_solver(u, v, w, p, rho, nu, dx, dy, dz, dt, nt):
     p_corr = np.zeros_like(p)
     res = np.zeros_like(p)
 
-    # # Set the boundary conditions for the velocity field
-    # u[:, :, 0] = 0
-    # u[:, :, -1] = 0
-    # u[:, 0, :] = 0
-    # u[:, -1, :] = 0
-    # u[0, :, :] = 0
-    # u[-1, :, :] = 0
-    # v[:, :, 0] = 0
-    # v[:, :, -1] = 0
-    # v[:, 0, :] = 0
-    # v[:, -1, :] = 0
-    # v[0, :, :] = 0
-    # v[-1, :, :] = 0
-    # w[:, :, 0] = 0
-    # w[:, :, -1] = 0
-    # w[:, 0, :] = 0
-    # w[:, -1, :] = 0
-    # w[0, :, :] = 0
-    # w[-1, :, :] = 0
-    #
-    # # Set the boundary conditions for the pressure field
-    # p[:, :, 0] = 0
-    # p[:, :, -1] = 0
-    # p[:, 0, :] = 0
-    # p[:, -1, :] = 0
-    # p[0, :, :] = 0
-    # p[-1, :, :] = 0
+    # Set the boundary conditions for the velocity field
+    u[:, :, 0] = 0
+    u[:, :, -1] = 0
+    u[:, 0, :] = 0
+    u[:, -1, :] = 0
+    u[0, :, :] = 0
+    u[-1, :, :] = 0
+    v[:, :, 0] = 0
+    v[:, :, -1] = 0
+    v[:, 0, :] = 0
+    v[:, -1, :] = 0
+    v[0, :, :] = 0
+    v[-1, :, :] = 0
+    w[:, :, 0] = 0
+    w[:, :, -1] = 0
+    w[:, 0, :] = 0
+    w[:, -1, :] = 0
+    w[0, :, :] = 0
+    w[-1, :, :] = 0
 
-    for n in range(nt):
+    # Set the boundary conditions for the pressure field
+    p[:, :, 0] = 0
+    p[:, :, -1] = 0
+    p[:, 0, :] = 0
+    p[:, -1, :] = 0
+    p[0, :, :] = 0
+    p[-1, :, :] = 0
+
+    for _ in range(nt):
         # Update the velocity field using the Euler method
         u_star = u + dt * (
             -u * np.gradient(u, dx, axis=0)
@@ -183,7 +183,7 @@ v = np.zeros((nx, ny, nz))
 w = np.zeros((nx, ny, nz))
 
 # Set the initial pressure field
-p = np.ones((nx, ny, nz)) * 0.00001
+p = np.ones((nx, ny, nz)) * 0.0
 
 # Solve the Navier-Stokes equations
 u, v, w, p = navier_stokes_solver(u, v, w, p, rho, nu, dx, dy, dz, dt, nt)
