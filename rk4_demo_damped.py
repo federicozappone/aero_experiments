@@ -1,3 +1,4 @@
+# This is just my code for a simple RK4 integrator that I keep as reference for other things
 import numpy as np
 import matplotlib.pyplot as plt
 
