@@ -8,6 +8,7 @@ rho = 1.0  # Density
 cs = 1.0   # Speed of sound
 kappa = 1.0  # Thermal conductivity
 T0 = 1.0  # Reference temperature
+T_env = 300  # Temperature of the surrounding environment
 
 # Simulation parameters
 nx = 200  # Number of lattice points in x direction
